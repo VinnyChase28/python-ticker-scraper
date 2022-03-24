@@ -56,7 +56,7 @@ for submission in submissions:
     submission.comments.replace_more(limit=None)
     for comment in submission.comments.list():
       for word in words_in_string(tickers_set, comment.body):
-        data = supabase.table("ticker_mentions").insert({"ticker": word, 'comment': comment.body }).execute()
+        data = supabase.table("ticker_mentions").insert({"ticker": word, 'comment': comment.body, 'source': 'reddit' }).execute()
 
 
 
