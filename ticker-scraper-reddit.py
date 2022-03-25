@@ -48,6 +48,7 @@ for submission in reddit.subreddit("investing").hot(limit=10):
 submissions = []
 for url in urls:
   submissions.append(reddit.submission(url=url))
+print(submissions)
 
 #Send to Supabase
 def words_in_string(word_list, a_string):

@@ -16,4 +16,4 @@ for i in range(len(symbol_list_us)):
   tickers.append(symbol_list_us[i]['symbol'])
 #push tickers to supabase
 for i in range(len(tickers)):
-  data = supabase.table("tickers").insert({"symbol":tickers[i]}).execute()
+  data = supabase.table("tickers").update({"symbol":tickers[i]}).eq("symbol", tickers[i]).execute()
