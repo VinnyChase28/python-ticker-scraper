@@ -1,4 +1,3 @@
-
 from turtle import clear
 from dotenv import load_dotenv
 import os
@@ -41,8 +40,8 @@ print(crypto_list_set)
 
 #Connect to Reddit API via PRAW
 reddit = praw.Reddit(
-    client_id=os.environ.get("CLIENT_ID"),
-    client_secret=os.environ.get("SECRET_TOKEN"),
+    client_id=os.environ.get("CLIENT_ID_TWO"),
+    client_secret=os.environ.get("SECRET_TOKEN_TWO"),
     user_agent="WSBetter by u/relevant-magic-card",
     ratelimit_seconds=300
 )
