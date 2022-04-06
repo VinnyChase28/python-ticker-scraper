@@ -45,6 +45,15 @@ def scheduled_job():
   for submission in reddit.subreddit("investing").hot(limit=10):
       if url_check in submission.url:
         urls.append(submission.url)
+  for submission in reddit.subreddit("superstonk").hot(limit=10):
+      if url_check in submission.url:
+        urls.append(submission.url)
+  for submission in reddit.subreddit("stockmarket").hot(limit=10):
+      if url_check in submission.url:
+        urls.append(submission.url)
+  for submission in reddit.subreddit("pennystocks").hot(limit=10):
+      if url_check in submission.url:
+        urls.append(submission.url)
 
   submissions = []
   for url in urls:

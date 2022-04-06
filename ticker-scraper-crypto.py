@@ -50,6 +50,15 @@ def scheduled_job():
   for submission in reddit.subreddit("cryptocurrencies").hot(limit=10):
       if url_check in submission.url:
         urls.append(submission.url)
+  for submission in reddit.subreddit("binance").hot(limit=10):
+      if url_check in submission.url:
+        urls.append(submission.url)
+  for submission in reddit.subreddit("satoshistreetbets").hot(limit=10):
+      if url_check in submission.url:
+        urls.append(submission.url)
+  for submission in reddit.subreddit("cryptomarkets").hot(limit=10):
+      if url_check in submission.url:
+        urls.append(submission.url)
 
   submissions = []
   for url in urls:
