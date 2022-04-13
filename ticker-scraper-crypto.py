@@ -14,7 +14,7 @@ supabase: Client = create_client(url, key)
 sched = BlockingScheduler()
 
 # Get all cryptos and set the as a list
-@sched.scheduled_job('cron', day_of_week='mon-sun', hour=23)
+@sched.scheduled_job('cron', day_of_week='mon-sun', hour=22)
 def scheduled_job():
   crypto_list = []
   url = 'https://web-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
