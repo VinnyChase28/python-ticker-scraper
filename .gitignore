@@ -1,3 +1,4 @@
 scraper/
 .env
 chromedriver/
+test.csv
