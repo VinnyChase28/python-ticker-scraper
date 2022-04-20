@@ -19,6 +19,7 @@ def Convert(a):
 
 
 test = Convert(real_data)
+print(len(test))
 # get all unique tickers
 tickers = []
 for i in test:

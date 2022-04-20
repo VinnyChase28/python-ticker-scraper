@@ -1,5 +1,3 @@
 scraper/
 .env
 chromedriver/
-test.csv
-test-crypto.csv

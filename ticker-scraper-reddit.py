@@ -5,6 +5,7 @@ from supabase import create_client, Client
 from praw.models import MoreComments
 from stocksymbol import StockSymbol
 from apscheduler.schedulers.blocking import BlockingScheduler
+from twilio.rest import Client
 
 # take environment variables from .env.
 load_dotenv()  
