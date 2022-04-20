@@ -6,11 +6,20 @@ from praw.models import MoreComments
 import requests
 from twilio.rest import Client
 from apscheduler.schedulers.blocking import BlockingScheduler 
+
 load_dotenv()  # take environment variables from .env.
+
 #Initialize supabase
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 supabase: Client = create_client(url, key)
+
+#Initialize twilio
+account_sid = os.environ['TWILIO_ACCOUNT_SID']
+auth_token = os.environ['TWILIO_AUTH_TOKEN']
+client = Client(account_sid, auth_token)
+
+#Initialize scheduler
 sched = BlockingScheduler()
 
 # Get all cryptos and set the as a list
