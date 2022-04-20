@@ -14,7 +14,7 @@ key: str = os.environ.get("SUPABASE_KEY")
 supabase: Client = create_client(url, key)
 
 sched = BlockingScheduler()
-@sched.scheduled_job('cron', day_of_week='mon-sun', hour=22)
+@sched.scheduled_job('cron', day_of_week='mon-sun', hour=5)
 def scheduled_job():
   # Get all tickers and set the as a list
   api_key = os.environ.get("SYMBOL_KEY")
