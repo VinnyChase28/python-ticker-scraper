@@ -5,7 +5,6 @@ from supabase import create_client, Client
 from praw.models import MoreComments
 import requests
 from apscheduler.schedulers.blocking import BlockingScheduler 
-
 load_dotenv()  # take environment variables from .env.
 #Initialize supabase
 url: str = os.environ.get("SUPABASE_URL")
@@ -28,6 +27,7 @@ def scheduled_job():
       for number, item in enumerate(data['data']):
           crypto_list.append(item['symbol'])
   crypto_list_set = set(crypto_list)
+  crypto_list_set.remove('ID')
   print(crypto_list_set) 
 
   #Connect to Reddit API via PRAW

@@ -1,13 +1,13 @@
 from dotenv import load_dotenv
 import os
-from pydantic import conset
 import praw
 from supabase import create_client, Client
 from praw.models import MoreComments
 from stocksymbol import StockSymbol
 from apscheduler.schedulers.blocking import BlockingScheduler
 
-load_dotenv()  # take environment variables from .env.
+# take environment variables from .env.
+load_dotenv()  
 #Initialize supabase
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
@@ -16,7 +16,7 @@ supabase: Client = create_client(url, key)
 sched = BlockingScheduler()
 @sched.scheduled_job('cron', day_of_week='mon-sun', hour=22)
 def scheduled_job():
-    # Get all tickers and set the as a list
+  # Get all tickers and set the as a list
   api_key = os.environ.get("SYMBOL_KEY")
   ss = StockSymbol(api_key)
   symbol_list_us = ss.get_symbol_list(market="US")
@@ -24,6 +24,8 @@ def scheduled_job():
   for i in range(len(symbol_list_us)):
     tickers.append(symbol_list_us[i]['symbol'])
   tickers_set = set(tickers)
+  tickers_set.remove("A")
+  print(tickers_set)
 
   #Connect to Reddit API via PRAW
   reddit = praw.Reddit(
@@ -33,7 +35,7 @@ def scheduled_job():
       ratelimit_seconds=300
   )
 
-  #Get hot submissions from 3 most popular trading subs / ensure submissions have comments
+  #Get hot submissions from 6 most popular trading subs / ensure submissions have comments
   urls = []
   url_check = 'comment'
   for submission in reddit.subreddit("wallstreetbets").hot(limit=10):

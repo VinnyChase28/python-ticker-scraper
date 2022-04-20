@@ -8,7 +8,7 @@ load_dotenv()  # take environment variables from .env.
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
 supabase: Client = create_client(url, key)
-data = supabase.table("ticker_mentions").select("created_at, ticker" ).execute()
+data = supabase.table("crypto_mentions").select("created_at, ticker" ).execute()
 
 to_list = list(data)
 real_data = to_list[0]
@@ -42,4 +42,7 @@ for i in test:
   if h in tickerset and j in dateset:
       df.loc[h,j] += 1
 
-df.cumsum(axis=1).to_csv(path_or_buf='test.csv')
+print(df.shape[0])
+print(df.shape[1])
+print(df.cumsum(axis=1))
+df.cumsum(axis=1).to_csv(path_or_buf='test-crypto.csv')
