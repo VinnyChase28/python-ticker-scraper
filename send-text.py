@@ -1,6 +1,7 @@
 # Download the helper library from https://www.twilio.com/docs/python/install
 import os
 from twilio.rest import Client
+
 from dotenv import load_dotenv
 
 load_dotenv()  
@@ -12,7 +13,7 @@ client = Client(account_sid, auth_token)
 
 message = client.messages \
     .create(
-         body='Crypto Script Started',
+         body='Crypto script started',
          from_='+16043328356',
          to='+12369995843'
      )

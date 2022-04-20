@@ -4,6 +4,7 @@ import praw
 from supabase import create_client, Client
 from praw.models import MoreComments
 import requests
+from twilio.rest import Client
 from apscheduler.schedulers.blocking import BlockingScheduler 
 load_dotenv()  # take environment variables from .env.
 #Initialize supabase
