@@ -25,6 +25,14 @@ sched = BlockingScheduler()
 # Get all cryptos and set the as a list
 @sched.scheduled_job('cron', day_of_week='mon-sun', hour=5)
 def scheduled_job():
+  message = client.messages \
+    .create(
+         body='Crypto script started',
+         from_='+16043328356',
+         to='+12369995843'
+     )
+
+  print(message)  
   crypto_list = []
   url = 'https://web-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
   for start in range(1, 20000, 5000):
